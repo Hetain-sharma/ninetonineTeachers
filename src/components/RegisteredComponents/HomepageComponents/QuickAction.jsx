@@ -3,15 +3,43 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Heading from './Heading';
 import COLORS from '../../../constants/color';
+import {useNavigation} from '@react-navigation/native';
 
 const QuickAction = () => {
+  const navigation = useNavigation();
+
   const quickActions = [
-    {name: 'Attendance', icon: 'event-available', color: '#EFF1FE'},
-    {name: 'Class Notes', icon: 'note', color: '#EFF1FE'},
-    {name: 'Gallery', icon: 'photo-library', color: '#EFF1FE'},
-    {name: 'Calendar', icon: 'calendar-today', color: '#EFF1FE'},
-    {name: 'Income', icon: 'account-balance-wallet', color: '#EFF1FE'},
-    {name: 'Meetings', icon: 'video-call', color: '#EFF1FE'},
+    {
+      name: 'Attendance',
+      icon: 'event-available',
+      color: '#EFF1FE',
+      screen: 'Attendance',
+    },
+    {name: 'Class Notes', icon: 'note', color: '#EFF1FE', screen: 'ClassNotes'},
+    {
+      name: 'Gallery',
+      icon: 'photo-library',
+      color: '#EFF1FE',
+      screen: 'Gallery',
+    },
+    {
+      name: 'Calendar',
+      icon: 'calendar-today',
+      color: '#EFF1FE',
+      screen: 'Calendar',
+    },
+    {
+      name: 'Income',
+      icon: 'account-balance-wallet',
+      color: '#EFF1FE',
+      screen: 'Income',
+    },
+    {
+      name: 'Meetings',
+      icon: 'video-call',
+      color: '#EFF1FE',
+      screen: 'Meetings',
+    },
   ];
 
   return (
@@ -19,7 +47,10 @@ const QuickAction = () => {
       <Heading message={'Quick Actions'} />
       <View style={styles.actionsGrid}>
         {quickActions.map((action, index) => (
-          <TouchableOpacity key={index} style={styles.actionItem}>
+          <TouchableOpacity
+            key={index}
+            style={styles.actionItem}
+            onPress={() => navigation.navigate(action.screen)}>
             <View style={[styles.actionIcon, {backgroundColor: action.color}]}>
               <Icon name={action.icon} size={24} color={COLORS.primary} />
             </View>
