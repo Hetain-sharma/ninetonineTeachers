@@ -30,8 +30,16 @@ const Classes = () => {
           </View>
         </View>
       </View>
-      <View style={styles.timeSlot}>
-        <Text style={styles.timeSlotTitle}>Afternoon</Text>
+      <View
+        style={[
+          styles.timeSlot,
+          {
+            backgroundColor: 'white',
+            borderWidth: 1,
+            borderColor: COLORS.border,
+          },
+        ]}>
+        <Text style={[styles.timeSlotTitle, {color: 'black'}]}>Afternoon</Text>
       </View>
       <View style={styles.card}>
         <View style={styles.header}>
@@ -52,8 +60,16 @@ const Classes = () => {
           </View>
         </View>
       </View>
-      <View style={styles.timeSlot}>
-        <Text style={styles.timeSlotTitle}>Evening</Text>
+      <View
+        style={[
+          styles.timeSlot,
+          {
+            backgroundColor: 'white',
+            borderWidth: 1,
+            borderColor: COLORS.border,
+          },
+        ]}>
+        <Text style={[styles.timeSlotTitle, {color: 'black'}]}>Evening</Text>
       </View>
       <View style={styles.card}>
         <View style={styles.header}>

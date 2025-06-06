@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderWidth: 0.5,
     borderColor: COLORS.border,
+    marginBottom: 10,
   },
   header: {
     flexDirection: 'row',

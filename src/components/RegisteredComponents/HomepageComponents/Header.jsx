@@ -23,9 +23,6 @@ const Header = () => {
               <Text style={styles.dateText}>
                 Have a wonderful teaching day !
               </Text>
-              <Text style={styles.pdateText}>
-                Have a wonderful teaching dayyy !
-              </Text>
             </View>
           </View>
         </View>
@@ -34,7 +31,7 @@ const Header = () => {
         onPress={() => navigation.navigate('ReDirect')}
         style={styles.mapButton}>
         <Image
-          source={require('../../../assets/images/Profile.jpg')}
+          source={require('../../../assets/images/Girl.jpg')}
           style={{width: 50, height: 50, borderRadius: 50}}
         />
       </TouchableOpacity>
@@ -80,18 +77,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
   },
   dateText: {
-    // fontFamily: 'Poppins-Regular',
     fontSize: 14,
     fontWeight: '400',
     color: COLORS.gray,
     lineHeight: 16,
-  },
-  pdateText: {
-    fontSize: 14,
-    fontWeight: '400',
-    color: COLORS.gray,
-    lineHeight: 16,
-    fontFamily: 'Poppins-Regular',
   },
   talkToExpertButton: {
     flexDirection: 'row',

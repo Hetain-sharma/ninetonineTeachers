@@ -5,17 +5,21 @@ import BankDetails from '../components/RegisteredComponents/ProfileScreen.jsx/Ba
 import Documents from '../components/RegisteredComponents/ProfileScreen.jsx/Documents';
 import Settings from '../components/RegisteredComponents/ProfileScreen.jsx/Settings';
 import Header from '../components/RegisteredComponents/HomepageComponents/Header';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
+import Branch from '../components/RegisteredComponents/ProfileScreen.jsx/Branch';
 
 const ProfileScreen = () => {
+  const insets = useSafeAreaInsets();
   return (
     <SafeAreaView style={styles.container}>
       <Header />
       <ScrollView
-        style={styles.scrollView}
+        style={styles.content}
+        contentContainerStyle={{paddingBottom: insets.bottom + 20}} // padding to avoid overlap
         showsVerticalScrollIndicator={false}>
         <ProfileHeader />
         <View style={styles.content}>
+          <Branch />
           <BankDetails />
           <Documents />
           {/* <Settings /> */}
