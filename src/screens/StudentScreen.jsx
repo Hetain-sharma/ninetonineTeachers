@@ -1,0 +1,307 @@
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  StatusBar,
+  Image,
+  Dimensions,
+} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import Header from '../components/RegisteredComponents/HomepageComponents/Header';
+import COLORS from '../constants/color';
+import AssetsStock from '../constants/ImagesContants';
+
+const {width} = Dimensions.get('window');
+
+const StudentsScreen = () => {
+  const [selectedStudentCount, setSelectedStudentCount] =
+    useState('12 students');
+
+  const students = [
+    {
+      id: 1,
+      name: 'Aarav Mehta',
+      age: 'Age : 2-5 year',
+      avatar: 'https://via.placeholder.com/40',
+    },
+    {
+      id: 2,
+      name: 'Myra Sharma',
+      age: 'Age : 2-5 year',
+      avatar: 'https://via.placeholder.com/40',
+    },
+    {
+      id: 3,
+      name: 'Vihaan Patel',
+      age: 'Age : 2-5 year',
+      avatar: 'https://via.placeholder.com/40',
+    },
+    {
+      id: 4,
+      name: 'Anaya Gupta',
+      age: 'Age : 2-5 year',
+      avatar: 'https://via.placeholder.com/40',
+    },
+    {
+      id: 5,
+      name: 'Ishaan Singh',
+      age: 'Age : 2-5 year',
+      avatar: 'https://via.placeholder.com/40',
+    },
+    {
+      id: 6,
+      name: 'Kiara Jain',
+      age: 'Age : 2-5 year',
+      avatar: 'https://via.placeholder.com/40',
+    },
+  ];
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <Header />
+
+      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+        {/* My Classes Section */}
+        <View style={styles.myClassesHeader}>
+          <View>
+            <Text style={styles.myClassesTitle}>My Classes</Text>
+            <Text style={styles.myClassesSubtitle}>
+              Manage your daily classes
+            </Text>
+          </View>
+          <TouchableOpacity style={styles.addClassButton}>
+            <Icon name="add" size={16} color="#fff" />
+            <Text style={styles.addClassButtonText}>Add Class</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Class Card */}
+        <View style={styles.classCard}>
+          <View style={styles.classHeader}>
+            <View style={styles.classInfo}>
+              <Text style={styles.className}>Little Explorers</Text>
+              <View style={styles.classTime}>
+                <Icon name="access-time" size={16} color="#666" />
+                <Text style={styles.classTimeText}>9:00 AM - 10:30 AM</Text>
+              </View>
+            </View>
+            <TouchableOpacity style={styles.studentCountButton}>
+              <Text style={styles.studentCountText}>
+                {selectedStudentCount}
+              </Text>
+              <Icon name="keyboard-arrow-down" size={20} color="#666" />
+            </TouchableOpacity>
+          </View>
+
+          {/* Students Section */}
+          <Text style={styles.studentsTitle}>Students</Text>
+
+          {students.map(student => (
+            <View key={student.id} style={styles.studentRow}>
+              <View style={styles.studentInfo}>
+                <View style={styles.avatarContainer}>
+                  <Image source={AssetsStock.profile} style={styles.avatar} />
+                </View>
+                <View style={styles.studentDetails}>
+                  <Text style={styles.studentName}>{student.name}</Text>
+                  <Text style={styles.studentAge}>{student.age}</Text>
+                </View>
+              </View>
+              <TouchableOpacity style={styles.addRemarkButton}>
+                <Icon name="chat-bubble-outline" size={16} color="#666" />
+                <Text style={styles.addRemarkText}>Add Remark</Text>
+              </TouchableOpacity>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: '#fff',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginLeft: 12,
+    color: '#000',
+  },
+  notificationIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#6B46C1',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 10,
+  },
+  myClassesHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 10,
+    marginBottom: 16,
+    paddingHorizontal: 14,
+  },
+  myClassesTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#000',
+  },
+  myClassesSubtitle: {
+    fontSize: 12,
+    color: '#666',
+    marginTop: 2,
+  },
+  addClassButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 6,
+    gap: 4,
+  },
+  addClassButtonText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  classCard: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 16,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  classHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 20,
+  },
+  classInfo: {
+    flex: 1,
+  },
+  className: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#000',
+    marginBottom: 8,
+  },
+  classTime: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  classTimeText: {
+    fontSize: 14,
+    color: COLORS.text_gray,
+    marginLeft: 4,
+  },
+  studentCountButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  studentCountText: {
+    fontSize: 12,
+    color: COLORS.text_gray,
+    marginRight: 4,
+    fontWeight: 600,
+  },
+  studentsTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#000',
+    marginBottom: 16,
+  },
+  studentRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f0f0f0',
+  },
+  studentInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  avatarContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    overflow: 'hidden',
+    marginRight: 12,
+  },
+  avatar: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#ddd',
+  },
+  studentDetails: {
+    flex: 1,
+  },
+  studentName: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#000',
+  },
+  studentAge: {
+    fontSize: 14,
+    color: COLORS.text_gray,
+    marginTop: 2,
+  },
+  addRemarkButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    gap: 4,
+  },
+  addRemarkText: {
+    fontSize: 12,
+    color: COLORS.text_gray,
+  },
+});
+
+export default StudentsScreen;
