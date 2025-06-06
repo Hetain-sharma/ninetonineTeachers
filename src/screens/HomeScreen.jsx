@@ -19,18 +19,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Classes from '../components/RegisteredComponents/HomepageComponents/Classes';
 import RecentUpdates from '../components/RegisteredComponents/HomepageComponents/RecentUpdates';
 
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-
 const HomeScreen = () => {
-  const insets = useSafeAreaInsets();
-
   return (
     <SafeAreaView style={styles.container}>
       <Header />
-      <ScrollView
-        style={styles.content}
-        contentContainerStyle={{paddingBottom: insets.bottom + 20}} // padding to avoid overlap
-        showsVerticalScrollIndicator={false}>
+      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         <Banner />
         <TeachingSkills />
         <QuickAction />

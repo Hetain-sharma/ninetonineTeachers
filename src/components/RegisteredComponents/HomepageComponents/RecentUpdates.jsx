@@ -90,7 +90,7 @@ export default RecentUpdates;
 const styles = StyleSheet.create({
   updatesContainer: {
     // paddingHorizontal: 20,
-    marginBottom: 20,
+    marginBottom: 60,
   },
   sectionHeaderRow: {
     flexDirection: 'row',
